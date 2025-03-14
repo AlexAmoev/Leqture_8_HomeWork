@@ -11,6 +11,8 @@ export class ApiService {
   private basketCount: BehaviorSubject<number> = new BehaviorSubject(0);
   basketCount$ = this.basketCount.asObservable();
 
+  public loader: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   updateBasketCount(count: number) {
     this.basketCount.next(count);
   }
@@ -20,6 +22,14 @@ export class ApiService {
 
   showHideAuth(hide: boolean) {
     this.authShowHide.next(hide);
+  }
+
+  statrLoading() {
+    this.loader.next(true);
+  }
+
+  stopLoading() {
+    this.loader.next(false);
   }
 
   // public basketCount: BehaviorSubject<number> = new BehaviorSubject(0);
@@ -40,6 +50,19 @@ export class ApiService {
   getAllFromBasket() {
     return this.http.get(
       'https://restaurant.stepprojects.ge/api/Baskets/GetAll'
+    );
+  }
+
+  updateBasket(product: any) {
+    return this.http.put(
+      'https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket',
+      product
+    );
+  }
+
+  deleteFromBasket(id: number) {
+    return this.http.delete(
+      `https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`
     );
   }
 

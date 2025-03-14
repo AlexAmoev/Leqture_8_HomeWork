@@ -11,24 +11,38 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ item.product.name }}</h5>
-          <h5 class="card-title">Price: {{ item.price }} $</h5>
-          <h5 class="card-title">Spiciness: {{ item.product.spiciness }}</h5>
-          <h5
-            class="card-title"
-            [ngStyle]="{ color: item.nuts ? 'green' : 'red' }"
-          >
-            {{ item.product.nuts ? "Nuts" : "No nuts" }}
-          </h5>
-          <h5
-            class="card-title"
-            [ngStyle]="{ color: item.product.vegeterian ? 'green' : 'red' }"
-          >
-            {{ item.product.vegeterian ? "Vegeterian" : "Not vegeterian" }}
-          </h5>
+          <div class="cardLeft">
+            <h5 class="card-title">{{ item.product.name }}</h5>
+            <h5 class="card-title">Price: {{ item.price }} $</h5>
+            <h5 class="card-title">Spiciness: {{ item.product.spiciness }}</h5>
+            <h5
+              class="card-title"
+              [ngStyle]="{ color: item.nuts ? 'green' : 'red' }"
+            >
+              {{ item.product.nuts ? "Nuts" : "No nuts" }}
+            </h5>
+            <h5
+              class="card-title"
+              [ngStyle]="{ color: item.product.vegeterian ? 'green' : 'red' }"
+            >
+              {{ item.product.vegeterian ? "Vegeterian" : "Not vegeterian" }}
+            </h5>
+          </div>
+          <div class="cardRight">
+            <div class="delBtn">
+              <button (click)="del(item)">Del</button>
+            </div>
+            <div class="otherBtns">
+              <button (click)="decrease(item)">-</button>
+              <h3>{{ item.quantity }}</h3>
+              <button (click)="add(item)">+</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   }
 </section>
+@if (isLoadnig) {
+<app-loader></app-loader>}
