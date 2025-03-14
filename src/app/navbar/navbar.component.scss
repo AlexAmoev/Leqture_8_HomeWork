@@ -1,0 +1,40 @@
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // margin-inline: 50px;
+  margin: 50px;
+  .navBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+#cartBtn {
+  display: flex;
+  flex-direction: row;
+  p {
+    margin: 0;
+  }
+}
+
+.authOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(201, 184, 184, 0.9);
+  z-index: 99;
+  .hidden {
+    display: none;
+  }
+  .authInner {
+    // display: none;
+  }
+}

@@ -1,0 +1,16 @@
+<section>
+  <button routerLink="/">Home</button>
+  <div class="navBtns">
+    <button id="cartBtn" routerLink="cart">
+      Cart:
+      <p>{{ basketLength }}</p>
+    </button>
+    <button (click)="showHide()">Authorization</button>
+  </div>
+  <div [hidden]="hideAuth" class="authOut">
+    <div class="authInner">
+      <app-authorization></app-authorization>
+      <!-- <button (click)="showHide()">Z</button> -->
+    </div>
+  </div>
+</section>

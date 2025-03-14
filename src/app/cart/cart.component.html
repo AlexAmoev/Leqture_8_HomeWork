@@ -1,0 +1,34 @@
+<section>
+  @for (item of allProducts; track $index) {
+  <div class="card mb-3" style="max-width: 540px">
+    <div class="row g-0 cardInner">
+      <div class="col-md-4">
+        <img
+          [src]="item.product.image"
+          class="img-fluid rounded-start"
+          alt="..."
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.product.name }}</h5>
+          <h5 class="card-title">Price: {{ item.price }} $</h5>
+          <h5 class="card-title">Spiciness: {{ item.product.spiciness }}</h5>
+          <h5
+            class="card-title"
+            [ngStyle]="{ color: item.nuts ? 'green' : 'red' }"
+          >
+            {{ item.product.nuts ? "Nuts" : "No nuts" }}
+          </h5>
+          <h5
+            class="card-title"
+            [ngStyle]="{ color: item.product.vegeterian ? 'green' : 'red' }"
+          >
+            {{ item.product.vegeterian ? "Vegeterian" : "Not vegeterian" }}
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</section>
